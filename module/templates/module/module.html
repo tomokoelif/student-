@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Module {{ number }}{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<section class="form-section container-col">
+    <h2>Input your Goals and Submit</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="academicGoal1">Academic Goals (curriculum related) for module?</label>
+            {{ form.academicGoal1 }}
+            {{ form.academicGoal2 }}
+            {{ form.academicGoal3 }}
+        </div>
+        
+        <div class="form-group">
+            <label for="personalGoal1">Personal Goals (behaviours, skills) for module?</label>
+            {{ form.personalGoal1 }}
+            {{ form.personalGoal2 }}
+            {{ form.personalGoal3 }}
+        </div>
+        <div class="form-group">
+            <label for="employmentGoal1">Employment Goals (teamwork, collaboration) for module?</label>
+            {{ form.employmentGoal1 }}
+            {{ form.employmentGoal2 }}
+            {{ form.employmentGoal3 }}
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</section>
+{% endblock %}

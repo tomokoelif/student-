@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Responses{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="home-section container-col">
+    <div class="responses-container container-col">
+
+        <h2>HTML / CSS</h2>
+        {% if module_one_responses %}
+            {% for r in module_one_responses %}
+                <p>{{ r.text }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No responses yet.</p>
+        {% endif %}
+    
+        <h2>Javascript</h2>
+        {% if module_two_responses %}
+            {% for r in module_two_responses %}
+                <p>{{ r.text }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No responses yet.</p>
+        {% endif %}
+    
+        <h2>Django</h2>
+        {% if module_three_responses %}
+            {% for r in module_three_responses %}
+                <p>{{ r.text }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No responses yet.</p>
+        {% endif %}
+    
+        <h2>Final Hackathon</h2>
+        {% if module_four_responses %}
+            {% for r in module_four_responses %}
+                <p>{{ r.text }}</p>
+            {% endfor %}
+        {% else %}
+            <p>No responses yet.</p>
+        {% endif %}
+    </div>
+    <a href="{% url 'home' %}" class="btn">Return Home</a>
+</section>
+{% endblock %}

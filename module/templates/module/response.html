@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Module {{ number }} Response{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<section class="form-section container-col">
+    <h2>AI Generated Response</h2>
+    <div class="form">
+        {% if response_success %}
+        <div class="response-group container-col">
+            <p class="response-heading">Academic Goals:</p>
+            <div class="goals-group container-row">
+                <p class="goals">{{ academic_goals }}</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256"><path fill="currentColor" d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8m-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"/></svg>
+            </div>
+        </div>
+        <div class="response-group container-col">
+            <p class="response-heading">Personal Goals:</p>
+            <div class="goals-group container-row">
+                <p class="goals">{{ personal_goals }}</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256"><path fill="currentColor" d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8m-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"/></svg>
+            </div>
+        </div>
+        <div class="response-group container-col">
+            <p class="response-heading">Employment Goals:</p>
+            <div class="goals-group container-row">
+                <p class="goals">{{ employment_goals }}</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256"><path fill="currentColor" d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8m-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"/></svg>
+            </div>
+        </div>
+        {% else %}
+        <p>{{ ai_response }}</p>
+        {% endif %}
+
+        <a href="{% url 'home' %}" class="btn">Return Home</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/response.js' %}"></script>
+{% endblock %}
